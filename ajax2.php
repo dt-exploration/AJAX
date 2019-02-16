@@ -23,7 +23,7 @@ $q=$_GET['q'];
 
 $con = new mysqli ('localhost','root','','ajax');
 $query = " SELECT * FROM users WHERE id='$q' ";
-$result=$con->query($query) or die($con->error);
+$result = $con->query($query) or die($con->error);
 $row = $result->fetch_assoc();
 $con->close();
 

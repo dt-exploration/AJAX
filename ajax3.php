@@ -3,26 +3,26 @@
 
 <?php
 
-$vote=$_GET['vote'];
+$vote = $_GET['vote'];
 
 $file = fopen("ajaxpoll.txt", "r");
 $file_read = fread($file, filesize('ajaxpoll.txt'));
 fclose($file);
 
-$yesno_matrix=explode('|', $file_read);
+$yesno_matrix = explode('|', $file_read);
 
-$yes=$yesno_matrix[1];
-$no=$yesno_matrix[0];
+$yes = $yesno_matrix[1];
+$no  = $yesno_matrix[0];
 
-if($vote == 1) {
+if ($vote == 1) {
     $yes++;
 } else {
     $no++;
 }
 
-$insert_vote=$no.'|'.$yes;
-$file=fopen('ajaxpoll.txt', 'w');
-fwrite($file,$insert_vote);
+$insert_vote = $no.'|'.$yes;
+$file = fopen('ajaxpoll.txt', 'w');
+fwrite($file, $insert_vote);
 fclose($file);
 
 ?>
